@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: zan-afghan-women
+    runtime: python
+    repo: https://github.com/zafariabbas68/Zan---Afghan-Women-s-Digital-Sanctuary
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: FLASK_ENV
+        value: production
+    healthCheckPath: /

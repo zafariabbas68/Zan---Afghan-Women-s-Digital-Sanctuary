@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+*.log
+questions_log.txt
+.vscode/
+.idea/
+school book/
+*.pdf

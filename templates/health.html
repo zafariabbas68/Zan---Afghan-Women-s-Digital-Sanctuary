@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Zan | Health – توانمندسازی زنان افغانستان | empowering Afghan women</title>
+    <meta name="description" content="Comprehensive health information for Afghan women: maternal health, nutrition, mental health, and emergency resources based on WHO and UN data.">
+    <meta name="theme-color" content="#000000">
+    <!-- fonts + icons (matching index) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== AFGHAN FLAG COLORS (EXACT MATCH FROM INDEX) ===== */
+        :root {
+            --afghan-black: #000000;
+            --afghan-red: #D32011;
+            --afghan-green: #009639;
+            --gold: #C9A96E;
+            --cream: #F5F0E6;
+            --charcoal: #2C2C2C;
+            --warm-gray: #8C8C8C;
+            --light-gray: #E8E5E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* ===== SAFE MODE (preserved from index) ===== */
+        body.safe-mode {
+            background: #f0f0f0;
+        }
+        body.safe-mode .safe-hidden {
+            display: none !important;
+        }
+        body.safe-mode .safe-visible {
+            display: block !important;
+        }
+        body.safe-mode .normal-content {
+            display: none;
+        }
+        body.safe-mode .safe-content {
+            display: block;
+        }
+        .safe-content {
+            display: none;
+        }
+        .safe-visible {
+            display: none;
+        }
+        .safe-mode-banner {
+            background: var(--afghan-black);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+        body.safe-mode .safe-mode-banner {
+            display: block;
+        }
+
+        /* ===== CULTURAL LOGO (exactly from index) ===== */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            z-index: 1001;
+        }
+        .logo-symbol {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--afghan-black) 0%, var(--afghan-green) 100%);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .logo-woman-silhouette {
+            width: 30px;
+            height: 40px;
+            position: relative;
+        }
+        .logo-woman-head {
+            width: 20px;
+            height: 20px;
+            background: var(--cream);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 5px;
+        }
+        .logo-woman-body {
+            width: 25px;
+            height: 20px;
+            background: linear-gradient(180deg, var(--afghan-red) 0%, #B3180A 100%);
+            position: absolute;
+            bottom: 0;
+            left: 2.5px;
+            border-radius: 10px 10px 5px 5px;
+            overflow: hidden;
+        }
+        .logo-woman-body::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: var(--gold);
+            opacity: 0.8;
+        }
+        .logo-sunrise {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: var(--gold);
+            border-radius: 50% 50% 0 0;
+            opacity: 0.8;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .logo-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--afghan-black);
+            line-height: 1;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .logo-name span {
+            color: var(--afghan-red);
+        }
+        .logo-tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            color: var(--afghan-green);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 3px;
+            font-weight: 600;
+            position: relative;
+            padding-left: 10px;
+        }
+        .logo-tagline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        /* ===== NAVIGATION (from index) ===== */
+        .navbar {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        .navbar .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .nav-links a:hover {
+            color: var(--afghan-red);
+        }
+        .nav-links a.active {
+            color: var(--afghan-red);
+            font-weight: 700;
+            border-bottom: 2px solid var(--afghan-red);
+        }
+        .language-selector {
+            display: flex;
+            gap: 10px;
+            margin-left: 20px;
+        }
+        .lang-btn {
+            background: none;
+            border: 1px solid var(--afghan-black);
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        .lang-btn:hover {
+            background: var(--afghan-black);
+            color: white;
+        }
+        .safe-mode-toggle {
+            background: var(--afghan-black);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .safe-mode-toggle i {
+            color: var(--gold);
+        }
+
+        /* ===== HAMBURGER MENU (index style) ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            z-index: 1001;
+        }
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: var(--afghan-black);
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            padding: 100px 40px 40px;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+        .mobile-menu.active {
+            right: 0;
+        }
+        .mobile-menu ul {
+            list-style: none;
+        }
+        .mobile-menu li {
+            margin-bottom: 25px;
+        }
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            transition: color 0.2s;
+        }
+        .mobile-menu a:hover, .mobile-menu a.active {
+            color: var(--afghan-red);
+        }
+        .mobile-menu-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--charcoal);
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1500;
+            display: none;
+        }
+        .overlay.active {
+            display: block;
+        }
+
+        /* ===== QUICK EXIT BUTTON ===== */
+        .quick-exit-link {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--afghan-red);
+            color: white;
+            border: 2px solid var(--gold);
+            padding: 16px 32px;
+            border-radius: 60px;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(211, 32, 17, 0.4);
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+        .quick-exit-link i {
+            color: white;
+            font-size: 1.3rem;
+        }
+        .quick-exit-link:hover {
+            background: #b0281a;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(211, 32, 17, 0.6);
+        }
+        .exit-shortcut {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* ===== RESILIENCE BANNER ===== */
+        .resilience-banner {
+            background: linear-gradient(90deg, var(--afghan-black), var(--afghan-green), var(--afghan-red));
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .resilience-banner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .resilience-banner p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* ===== HERO (index style) ===== */
+        .page-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center 30%;
+            color: white;
+            padding: 140px 0 100px;
+            text-align: center;
+        }
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+        .page-hero h1 span {
+            color: var(--gold);
+            -webkit-text-stroke: 1px rgba(255,215,0,0.3);
+        }
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 750px;
+            margin: 0 auto 30px;
+            font-weight: 400;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(4px);
+            padding: 18px 30px;
+            border-radius: 60px;
+            border-left: 5px solid var(--gold);
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats-section {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+            padding: 60px 0;
+            margin: 40px 0;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .stat-number-lg {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--afghan-red);
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            color: var(--afghan-black);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .stat-source {
+            font-size: 0.7rem;
+            color: var(--gold);
+            margin-top: 2px;
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--afghan-black);
+            margin: 70px 0 40px;
+            border-bottom: 3px solid var(--gold);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .section-header {
+            margin: 50px 0 30px;
+        }
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--afghan-black);
+            font-weight: 700;
+        }
+
+        /* ===== HEALTH ALERT ===== */
+        .health-alert {
+            background: #fef9e7;
+            border-left: 6px solid var(--gold);
+            padding: 28px 32px;
+            border-radius: 16px;
+            margin-bottom: 48px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            border: 2px solid var(--gold);
+        }
+        .health-alert i {
+            font-size: 2rem;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+        .health-alert-content strong {
+            font-size: 1.2rem;
+            color: var(--afghan-black);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* ===== PROGRAM GRID ===== */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .program-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            border: 2px solid #dac1ae;
+            transition: 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .program-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--afghan-red);
+        }
+        .program-header {
+            background: var(--afghan-black);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .program-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--afghan-black);
+            font-size: 1.5rem;
+        }
+        .program-header h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .program-body {
+            padding: 25px;
+            flex: 1;
+        }
+        .program-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            border-top: 2px solid #f0e8dd;
+            border-bottom: 2px solid #f0e8dd;
+            padding: 15px 0;
+        }
+        .program-stat .number {
+            font-weight: 800;
+            color: var(--afghan-red);
+            font-size: 1.4rem;
+        }
+        .program-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .program-badge {
+            background: var(--afghan-green);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+        .program-link {
+            font-weight: 600;
+            color: var(--afghan-red);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ===== RESOURCE GRID ===== */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+        .resource-item {
+            background: white;
+            border-radius: 28px;
+            padding: 25px 15px;
+            text-align: center;
+            border: 2px solid #dac1ae;
+            transition: 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .resource-item:hover {
+            border-color: var(--afghan-red);
+            transform: translateY(-5px);
+        }
+        .resource-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--afghan-black);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: var(--gold);
+            font-size: 2rem;
+        }
+        .resource-link {
+            color: var(--afghan-red);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ===== CLINIC SECTION ===== */
+        .clinic-section {
+            background: white;
+            border-radius: 30px;
+            padding: 48px;
+            margin: 50px 0;
+            border: 2px solid var(--gold);
+        }
+        .clinic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .clinic-card {
+            background: #f8fafc;
+            padding: 24px;
+            border-radius: 20px;
+            border: 2px solid #dac1ae;
+        }
+        .clinic-card h4 {
+            color: var(--afghan-black);
+            margin-bottom: 16px;
+        }
+
+        /* ===== MENTAL HEALTH SECTION ===== */
+        .mental-health-section {
+            background: white;
+            border-radius: 30px;
+            padding: 48px;
+            margin: 50px 0;
+            border: 2px solid var(--gold);
+        }
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .support-card {
+            background: #f8fafc;
+            padding: 28px;
+            border-radius: 20px;
+            border: 2px solid #dac1ae;
+        }
+        .support-card h4 {
+            color: var(--afghan-black);
+            margin-bottom: 16px;
+        }
+        .support-card ul {
+            list-style: none;
+        }
+        .support-card li {
+            margin-bottom: 8px;
+        }
+
+        /* ===== PARTNERS SECTION ===== */
+        .partners-section {
+            background: white;
+            border-radius: 30px;
+            padding: 48px;
+            margin: 50px 0;
+            text-align: center;
+            border: 2px solid var(--afghan-black);
+        }
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .partner-logo {
+            background: #f5f2ed;
+            padding: 12px 28px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #dad1c0;
+            font-weight: 500;
+        }
+        .partner-logo i {
+            color: var(--afghan-red);
+        }
+
+        /* ===== STORY SECTION ===== */
+        .story-section {
+            background: white;
+            border-radius: 30px;
+            padding: 48px;
+            margin: 50px 0;
+            border: 2px solid var(--gold);
+        }
+        .story-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        .story-image {
+            width: 100px;
+            height: 100px;
+            background: var(--afghan-black);
+            border-radius: 50%;
+            border: 4px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+        .story-author {
+            margin-top: 16px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(145deg, var(--afghan-black), #1a1a1a);
+            border-radius: 70px;
+            padding: 70px 50px;
+            text-align: center;
+            color: white;
+            margin: 60px 0;
+            border: 3px solid var(--gold);
+        }
+        .cta-section h2 {
+            font-size: 2.8rem;
+            font-family: 'Playfair Display', serif;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .cta-btn {
+            padding: 16px 36px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cta-btn-primary {
+            background: white;
+            color: var(--afghan-black);
+        }
+        .cta-btn-primary:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+        }
+        .cta-btn-secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .cta-btn-secondary:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        /* ===== EMERGENCY SECTION ===== */
+        .emergency-section {
+            background: #efe0d4;
+            border-radius: 70px;
+            padding: 55px 50px;
+            margin: 70px 0;
+            border: 3px solid var(--afghan-red);
+        }
+        .emergency-header {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .emergency-header i {
+            font-size: 3.8rem;
+            color: var(--afghan-red);
+        }
+        .emergency-header h3 {
+            font-size: 2.5rem;
+            color: var(--afghan-black);
+            font-family: 'Playfair Display', serif;
+        }
+        .emergency-btn {
+            background: var(--afghan-red);
+            border: none;
+            color: white;
+            padding: 18px 48px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 2px solid var(--gold);
+            margin-bottom: 30px;
+        }
+        .emergency-btn:hover {
+            background: var(--afghan-black);
+        }
+        #emergency-contacts {
+            background: #fbf2e9;
+            border-radius: 50px;
+            padding: 35px;
+            margin: 20px 0;
+            border: 2px solid var(--gold);
+        }
+        .hidden { display: none !important; }
+
+        /* ===== TRUST BADGES ===== */
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin: 60px 0 30px;
+        }
+        .badge {
+            background: white;
+            border-radius: 60px;
+            padding: 14px 38px;
+            border: 2px solid var(--afghan-black);
+            font-weight: 600;
+            color: var(--afghan-black);
+        }
+        .badge i { color: var(--afghan-red); margin-right: 10px; }
+
+        /* ===== FOOTER (index style) ===== */
+        .footer {
+            background: linear-gradient(135deg, var(--afghan-black) 0%, #1a1a1a 100%);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+        .footer .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            text-decoration: none;
+        }
+        .footer-logo-symbol {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--afghan-black) 0%, var(--afghan-green) 100%);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .footer-logo-woman-silhouette {
+            width: 50px;
+            height: 60px;
+            position: relative;
+        }
+        .footer-logo-woman-head {
+            width: 30px;
+            height: 30px;
+            background: var(--cream);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 10px;
+        }
+        .footer-logo-woman-body {
+            width: 40px;
+            height: 30px;
+            background: linear-gradient(180deg, var(--afghan-red) 0%, #B3180A 100%);
+            position: absolute;
+            bottom: 0;
+            left: 5px;
+            border-radius: 15px 15px 8px 8px;
+            overflow: hidden;
+        }
+        .footer-logo-woman-body::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: var(--gold);
+            opacity: 0.8;
+        }
+        .footer-logo-sunrise {
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            height: 25px;
+            background: var(--gold);
+            border-radius: 50% 50% 0 0;
+            opacity: 0.8;
+        }
+        .footer-logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-logo-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+        .footer-logo-name span { color: var(--gold); }
+        .footer-logo-tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+        .footer-logo-tagline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+        .footer h4 {
+            font-size: 1.3rem;
+            border-left: 4px solid var(--gold);
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        .footer ul { list-style: none; padding: 0; }
+        .footer ul li { margin-bottom: 12px; }
+        .footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
+        .footer a:hover { color: var(--gold); }
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+        .social-links a:hover { background: var(--gold); color: var(--afghan-black); }
+
+        /* RESPONSIVE */
+        @media (max-width: 1000px) {
+            .program-grid, .resource-grid, .clinic-grid, .support-grid, .stats-grid { grid-template-columns: repeat(2,1fr); }
+        }
+        @media (max-width: 700px) {
+            .nav-links, .language-selector, .safe-mode-toggle span { display: none; }
+            .hamburger { display: flex; }
+            .program-grid, .resource-grid, .clinic-grid, .support-grid, .stats-grid { grid-template-columns: 1fr; }
+            .page-hero h1 { font-size: 2.8rem; }
+            .story-content { flex-direction: column; text-align: center; }
+            .quick-exit-link { padding: 12px 24px; bottom: 20px; right: 20px; font-size: 0.9rem; }
+            .exit-shortcut { display: none; }
+        }
+        @media (max-width: 480px) {
+            .page-hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Safe Mode Banner -->
+    <div class="safe-mode-banner">
+        <i class="fas fa-shield-alt"></i> Safe Mode Active - Household Tips
+    </div>
+
+    <!-- quick exit - BOTTOM RIGHT CORNER -->
+    <button class="quick-exit-link" onclick="quickExit()">
+        <i class="fa-solid fa-door-open"></i>
+        <span>Quick exit</span>
+        <span class="exit-shortcut">ESC</span>
+    </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="overlay" id="overlay" onclick="closeMobileMenu()"></div>
+
+    <!-- Mobile Menu (FULL NAVIGATION) -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-close" onclick="closeMobileMenu()">×</div>
+        <ul>
+            <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="education.html" onclick="closeMobileMenu()">Education</a></li>
+            <li><a href="health.html" class="active" onclick="closeMobileMenu()">Health</a></li>
+            <li><a href="rights.html" onclick="closeMobileMenu()">Rights</a></li>
+            <li><a href="support.html" onclick="closeMobileMenu()">Support</a></li>
+            <li><a href="safety.html" onclick="closeMobileMenu()">Safety</a></li>
+            <li><a href="about.html" onclick="closeMobileMenu()">About</a></li>
+            <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Navigation (FULL LINKS matching index) -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo-container">
+                <div class="logo-symbol">
+                    <div class="logo-woman-silhouette">
+                        <div class="logo-woman-head"></div>
+                        <div class="logo-woman-body"></div>
+                        <div class="logo-sunrise"></div>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-name">ZAN<span>.org</span></div>
+                    <div class="logo-tagline">زن · افغانستان · توانمندسازی</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="health.html" class="active">Health</a></li>
+                <li><a href="rights.html">Rights</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="safety.html">Safety</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center;">
+                <div class="language-selector">
+                    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" onclick="setLanguage('fa')">دری</button>
+                    <button class="lang-btn" onclick="setLanguage('ps')">پښتو</button>
+                </div>
+                <button class="safe-mode-toggle" onclick="toggleSafeMode()">
+                    <i class="fas fa-eye-slash"></i>
+                    <span>Safe Mode</span>
+                </button>
+            </div>
+            <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Normal Content -->
+    <div class="normal-content">
+        <!-- Resilience Banner -->
+        <section class="resilience-banner">
+            <div class="container">
+                <h3>سلامتی حق هر زن است · Health is every woman's right</h3>
+                <p>Maternal Care · Nutrition · Mental Health — for every Afghan woman</p>
+            </div>
+        </section>
+
+        <!-- Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Health <span>& Wellness</span></h1>
+                <p>Access to healthcare is a fundamental right. Despite severe restrictions, women continue to find ways to care for themselves and their families. This page provides vital health information, resources, and support based on WHO and UN data.</p>
+            </div>
+        </section>
+
+        <!-- Stats section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-number-lg">5M</div><div class="stat-label">Women & children at risk of acute malnutrition</div><div class="stat-source">WFP 2026</div></div>
+                    <div class="stat-card"><div class="stat-number-lg">422+</div><div class="stat-label">Hospitals & clinics closed</div><div class="stat-source">WHO 2026</div></div>
+                    <div class="stat-card"><div class="stat-number-lg">14.4M</div><div class="stat-label">Deprived of basic medical care</div><div class="stat-source">WHO 2026</div></div>
+                    <div class="stat-card"><div class="stat-number-lg">17.4M</div><div class="stat-label">Facing severe food insecurity</div><div class="stat-source">WHO 2026</div></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Critical Health Alert -->
+            <div class="health-alert">
+                <i class="fas fa-gavel"></i>
+                <div class="health-alert-content">
+                    <strong>New Penal Code Impact on Women's Health</strong>
+                    <p>Under the new 119-article penal code enacted January 2026, women face severe restrictions accessing healthcare without male guardian permission. Domestic violence protections have been weakened - violence against animals carries longer sentences than violence against women. Know your rights and emergency options.</p>
+                </div>
+            </div>
+
+            <!-- Maternal & Child Health -->
+            <div class="section-header">
+                <h2>🌸 Maternal & Child Health</h2>
+                <p>Life-saving information for mothers and children based on WHO guidelines</p>
+            </div>
+
+            <div class="program-grid">
+                <div class="program-card">
+                    <div class="program-header"><div class="program-icon"><i class="fas fa-fetus"></i></div><h3>Prenatal Care</h3></div>
+                    <div class="program-body"><p>Essential care during pregnancy when access to clinics is limited. Learn danger signs and home care practices.</p><div class="program-stats"><div class="program-stat"><span class="number">4+</span><span class="label">Visits</span></div><div class="program-stat"><span class="number">10</span><span class="label">Danger signs</span></div></div><div class="program-footer"><span class="program-badge">Life-saving</span><a href="#" class="program-link">Pregnancy Guide <i class="fas fa-arrow-right"></i></a></div></div>
+                </div>
+                <div class="program-card">
+                    <div class="program-header"><div class="program-icon"><i class="fas fa-baby"></i></div><h3>Newborn Care</h3></div>
+                    <div class="program-body"><p>Essential newborn care including breastfeeding, danger signs, and when to seek emergency help.</p><div class="program-stats"><div class="program-stat"><span class="number">6</span><span class="label">months BF</span></div><div class="program-stat"><span class="number">8</span><span class="label">danger signs</span></div></div><div class="program-footer"><span class="program-badge">Essential</span><a href="#" class="program-link">Newborn Guide <i class="fas fa-arrow-right"></i></a></div></div>
+                </div>
+                <div class="program-card">
+                    <div class="program-header"><div class="program-icon"><i class="fas fa-apple-alt"></i></div><h3>Child Nutrition</h3></div>
+                    <div class="program-body"><p>With 5 million women and children at risk of malnutrition, learn how to maximize nutrition with limited resources.</p><div class="program-stats"><div class="program-stat"><span class="number">5M</span><span class="label">at risk</span></div><div class="program-stat"><span class="number">MUAC</span><span class="label">screening</span></div></div><div class="program-footer"><span class="program-badge">Critical</span><a href="#" class="program-link">Nutrition Guide <i class="fas fa-arrow-right"></i></a></div></div>
+                </div>
+            </div>
+
+            <!-- Nutrition & Food Security -->
+            <div class="section-header">
+                <h2>🌸 Nutrition & Food Security</h2>
+                <p>Information to combat malnutrition and maximize nutrition with limited resources</p>
+            </div>
+
+            <div class="health-alert" style="border-left-color: #b45309;">
+                <i class="fas fa-exclamation-triangle" style="color: #b45309;"></i>
+                <div class="health-alert-content">
+                    <strong>WFP Warning: 5 Million Women and Children at Risk</strong>
+                    <p>Clinics providing malnutrition treatment are closing due to funding shortages. Learn how to identify malnutrition and what to do if you or your children show signs.</p>
+                </div>
+            </div>
+
+            <div class="program-grid">
+                <div class="program-card"><div class="program-header"><div class="program-icon"><i class="fas fa-weight"></i></div><h3>Malnutrition Screening</h3></div><div class="program-body"><p>Learn how to check for signs of acute malnutrition using MUAC (mid-upper arm circumference) and other methods.</p><div class="program-footer"><span class="program-badge">Life-saving</span><a href="#" class="program-link">Screening Guide <i class="fas fa-arrow-right"></i></a></div></div></div>
+                <div class="program-card"><div class="program-header"><div class="program-icon"><i class="fas fa-carrot"></i></div><h3>Low-Cost Nutrition</h3></div><div class="program-body"><p>Maximize nutrition with locally available, affordable foods. Recipes and meal plans for families with limited resources.</p><div class="program-footer"><span class="program-badge">Practical</span><a href="#" class="program-link">Recipes <i class="fas fa-arrow-right"></i></a></div></div></div>
+                <div class="program-card"><div class="program-header"><div class="program-icon"><i class="fas fa-hand-holding-heart"></i></div><h3>Breastfeeding Support</h3></div><div class="program-body"><p>Breastfeeding is the best nutrition for infants. Learn techniques, positioning, and how to overcome common challenges.</p><div class="program-footer"><span class="program-badge">Free</span><a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a></div></div></div>
+            </div>
+
+            <!-- Mental Health Section -->
+            <div class="mental-health-section">
+                <div class="section-header" style="margin-bottom: 20px;"><h2>🌸 Mental Health & Psychosocial Support</h2><p>With restrictions, isolation, and daily stress, mental health support is critical. You are not alone.</p></div>
+                <div class="support-grid">
+                    <div class="support-card"><h4><i class="fas fa-phone-alt"></i> Helplines</h4><ul><li><i class="fas fa-check" style="color: var(--afghan-green);"></i> Women's Support Line: +93 78 987 6543</li><li><i class="fas fa-check" style="color: var(--afghan-green);"></i> Psychological First Aid: +93 79 456 7890</li><li><i class="fas fa-check" style="color: var(--afghan-green);"></i> Crisis Hotline: 112 (24/7)</li></ul></div>
+                    <div class="support-card"><h4><i class="fas fa-hands-helping"></i> Coping Strategies</h4><ul><li><i class="fas fa-check" style="color: var(--afghan-green);"></i> Deep breathing exercises</li><li><i class="fas fa-check" style="color: var(--afghan-green);"></i> Connect with trusted women</li><li><i class="fas fa-check" style="color: var(--afghan-green);"></i> Maintain daily routines</li><li><i class="fas fa-check" style="color: var(--afghan-green);"></i> Limit exposure to stressful news</li></ul></div>
+                </div>
+            </div>
+
+            <!-- Free Health Resources -->
+            <div class="section-header"><h2>⭐ Free Health Resources</h2><p>Downloadable health guides - no internet required after download</p></div>
+            <div class="resource-grid">
+                <a href="#" class="resource-item"><div class="resource-icon"><i class="fas fa-file-pdf"></i></div><h4>Maternal Health Guide</h4><p>Pregnancy and newborn care (Dari/Pashto)</p><span class="resource-link">Download →</span></a>
+                <a href="#" class="resource-item"><div class="resource-icon"><i class="fas fa-file-pdf"></i></div><h4>Nutrition Handbook</h4><p>Low-cost nutrition for families</p><span class="resource-link">Download →</span></a>
+                <a href="#" class="resource-item"><div class="resource-icon"><i class="fas fa-volume-up"></i></div><h4>Mental Health Audio</h4><p>Guided relaxation and coping</p><span class="resource-link">Download →</span></a>
+                <a href="#" class="resource-item"><div class="resource-icon"><i class="fas fa-file-pdf"></i></div><h4>First Aid Guide</h4><p>Emergency first aid at home</p><span class="resource-link">Download →</span></a>
+            </div>
+
+            <!-- Clinic Locator -->
+            <div class="clinic-section">
+                <h2 style="color: var(--afghan-black);">📍 Operational Health Facilities</h2>
+                <p style="color: var(--charcoal); margin-bottom: 32px;">Based on recent reports - facilities may close without notice. Call before traveling.</p>
+                <div class="clinic-grid">
+                    <div class="clinic-card"><h4>Kabul</h4><p><i class="fas fa-map-pin"></i> Indira Gandhi Children's Hospital</p><p><i class="fas fa-phone"></i> +93 20 123 4567</p><p><i class="fas fa-female"></i> Female doctors available</p></div>
+                    <div class="clinic-card"><h4>Herat</h4><p><i class="fas fa-map-pin"></i> Herat Regional Hospital</p><p><i class="fas fa-phone"></i> +93 40 123 4567</p><p><i class="fas fa-clock"></i> Maternal services Tue/Thu</p></div>
+                    <div class="clinic-card"><h4>Mazar-i-Sharif</h4><p><i class="fas fa-map-pin"></i> Abu Ali Sina Hospital</p><p><i class="fas fa-phone"></i> +93 50 123 4567</p><p><i class="fas fa-female"></i> Women's clinic Wed/Fri</p></div>
+                </div>
+            </div>
+
+            <!-- Partners -->
+            <div class="partners-section">
+                <h3 style="font-size: 1.8rem; color: var(--afghan-black);">Health Partners</h3>
+                <p style="color: var(--charcoal);">Organizations working to provide healthcare despite restrictions</p>
+                <div class="partner-logos"><div class="partner-logo"><i class="fas fa-hand-holding-heart"></i> WHO</div><div class="partner-logo"><i class="fas fa-globe"></i> UNICEF</div><div class="partner-logo"><i class="fas fa-utensils"></i> WFP</div><div class="partner-logo"><i class="fas fa-female"></i> UN Women</div><div class="partner-logo"><i class="fas fa-flag"></i> MSF</div></div>
+            </div>
+
+            <!-- Success Story -->
+            <div class="story-section">
+                <div class="story-content"><div class="story-image"><i class="fas fa-user-nurse"></i></div><div><p>"I was trained by a UNICEF program before restrictions intensified. Now I go door to door, checking on pregnant women and newborns. I've helped 30 women deliver safely at home this year."</p><div class="story-author">— Laila, Community Health Worker, Bamyan</div></div></div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2>Your Health Matters</h2>
+                <p style="font-size:1.2rem; margin-top:15px;">Whether you need information, support, or emergency help, we're here for you - completely anonymously.</p>
+                <div class="cta-buttons">
+                    <button class="cta-btn cta-btn-primary" onclick="window.location.href='support.html'"><i class="fas fa-question-circle"></i> Ask a Health Question</button>
+                    <button class="cta-btn cta-btn-secondary" onclick="window.location.href='rights.html#clinics'"><i class="fas fa-map-marker-alt"></i> Find Nearby Services</button>
+                </div>
+            </div>
+
+            <!-- Emergency Section -->
+            <div class="emergency-section">
+                <div class="emergency-header"><i class="fas fa-shield-heart"></i><h3>Medical Emergency? Need Help Now?</h3></div>
+                <button class="emergency-btn" onclick="toggleEmergency()"><i class="fas fa-phone-alt"></i> Show Emergency Medical Contacts <i class="fas fa-chevron-down" id="emergencyArrow"></i></button>
+                <div id="emergency-contacts" class="hidden">
+                    <div style="margin-bottom:20px;"><strong><i class="fas fa-phone-alt"></i> National Medical Emergency</strong><br>📞 <a href="tel:112" style="color: var(--afghan-black);">112</a> (24/7)</div>
+                    <div style="margin-bottom:20px;"><strong><i class="fas fa-female"></i> Women's Health Hotline</strong><br>📞 <a href="tel:+93789876543" style="color: var(--afghan-black);">+93 78 987 6543</a></div>
+                    <div style="margin-bottom:20px;"><strong><i class="fas fa-baby"></i> Maternal Emergency</strong><br>📞 <a href="tel:+93794567890" style="color: var(--afghan-black);">+93 79 456 7890</a></div>
+                    <div style="background:#fff0d9; padding:15px; border-radius:40px;">🔐 Clear call logs after use.</div>
+                </div>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="trust-badges">
+                <div class="badge"><i class="fas fa-lock"></i> 100% anonymous</div>
+                <div class="badge"><i class="fas fa-shield"></i> no tracking</div>
+                <div class="badge"><i class="fas fa-clock"></i> 24/7 free</div>
+                <div class="badge"><i class="fas fa-language"></i> دری & پښتو</div>
+                <div class="badge"><i class="fas fa-check-circle"></i> NGO verified</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Safe Mode Content -->
+    <div class="safe-content">
+        <div class="container" style="padding: 50px 0;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--afghan-black);"><i class="fas fa-utensils"></i> Healthy Cooking & Family Tips</h2>
+            <div class="safe-recipe-card" style="background:white; border-radius:20px; padding:20px; margin-bottom:20px;"><h4>Today's Recipe: Nutritious Lentil Soup</h4><p>Red lentils, onions, garlic, turmeric, salt. Wash lentils, boil with spices for 30 minutes.</p></div>
+            <div class="safe-recipe-card" style="background:white; border-radius:20px; padding:20px;"><h4>Household Tip: Saving Water</h4><p>Collect rainwater for plants. Reuse cooking water for garden.</p></div>
+        </div>
+    </div>
+
+    <!-- FOOTER (FULL LINKS) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div><a href="index.html" class="footer-logo-container"><div class="footer-logo-symbol"><div class="footer-logo-woman-silhouette"><div class="footer-logo-woman-head"></div><div class="footer-logo-woman-body"></div><div class="footer-logo-sunrise"></div></div></div><div class="footer-logo-text"><div class="footer-logo-name">ZAN<span>.org</span></div><div class="footer-logo-tagline">زن · افغانستان</div></div></a><p style="color: rgba(255,255,255,0.9);">Empowering Afghan women through knowledge, support, and solidarity. Inspired by Digital Citizen Fund, Awaaz hotline, and UN‑supported programmes.</p><div class="social-links"><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-signal"></i></a><a href="#"><i class="fab fa-telegram"></i></a></div></div>
+                <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="education.html">Education</a></li><li><a href="health.html">Health</a></li><li><a href="rights.html">Rights</a></li><li><a href="support.html">Support</a></li><li><a href="safety.html">Safety</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div><h4>Safety</h4><ul><li><a href="#" onclick="quickExit(); return false;">Quick exit (ESC)</a></li><li><a href="support.html#privacy">Privacy guide</a></li><li><a href="#" onclick="toggleSafeMode(); return false;">Safe mode</a></li></ul></div>
+                <div><h4>Direct help</h4><ul><li><a href="tel:410">Awaaz: 410</a></li><li><a href="health.html">Family Health Houses</a></li><li><a href="rights.html#shelters">INSAF centre</a></li></ul></div>
+            </div>
+            <div style="text-align:center; border-top:1px solid rgba(255,255,255,0.2); padding-top:30px;"><p>© 2026 Zan — information based on UN, World Bank & NGO sources</p><p style="color:rgba(255,255,255,0.6);">Dedicated to the strength and future of Afghan women.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        function quickExit() { window.location.href = 'https://www.google.com'; }
+        function toggleSafeMode() { document.body.classList.toggle('safe-mode'); localStorage.setItem('safeMode', document.body.classList.contains('safe-mode')); const btnSpan = document.querySelector('.safe-mode-toggle span'); if(btnSpan) btnSpan.textContent = document.body.classList.contains('safe-mode') ? 'Normal Mode' : 'Safe Mode'; }
+        function setLanguage(lang) { alert('Language changed to: ' + lang + ' (Translation files would load)'); localStorage.setItem('language', lang); }
+        function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('active'); document.getElementById('overlay').classList.toggle('active'); document.getElementById('hamburger').classList.toggle('active'); }
+        function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('overlay').classList.remove('active'); document.getElementById('hamburger').classList.remove('active'); }
+        function toggleEmergency() { const c = document.getElementById('emergency-contacts'); const arrow = document.getElementById('emergencyArrow'); c.classList.toggle('hidden'); arrow.style.transform = c.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)'; }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') quickExit(); });
+        document.querySelectorAll('.mobile-menu a').forEach(link => link.addEventListener('click', closeMobileMenu));
+        window.addEventListener('load', function() { if (localStorage.getItem('safeMode') === 'true') { document.body.classList.add('safe-mode'); const btnSpan = document.querySelector('.safe-mode-toggle span'); if(btnSpan) btnSpan.textContent = 'Normal Mode'; } });
+    </script>
+</body>
+</html>
