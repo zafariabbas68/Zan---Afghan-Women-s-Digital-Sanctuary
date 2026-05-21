@@ -121,6 +121,12 @@ def resources():
     return render_template('resources.html', resources=emergency_resources)
 
 
+@app.route('/rights')
+def rights():
+    """Rights page - using resources.html which contains legal rights content"""
+    return render_template('resources.html', resources=emergency_resources)
+
+
 @app.route('/support')
 def support():
     """Support page"""
@@ -137,12 +143,6 @@ def contact():
 def about():
     """About Us page"""
     return render_template('about.html')
-
-
-@app.route('/rights')
-def rights():
-    """Rights page"""
-    return render_template('rights.html')
 
 
 @app.route('/safety')
