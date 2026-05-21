@@ -1,6 +1,5 @@
 
-# زَن
-an - Afghan Women's Digital Sanctuary
+# زَن Zan - Afghan Women's Digital Sanctuary
 
 [![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://zan-afghan-women-s-digital-sanctuary.onrender.com)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
