@@ -3,18 +3,16 @@ from flask_cors import CORS
 import os
 import json
 from datetime import datetime
-# Add to app.py before running in production
 import secrets
-app.secret_key = os.environ.get('SECRET_KEY', secrets.token_hex(16))
-
-# Disable debug mode
-app.debug = False
 
 # Initialize Flask app
 app = Flask(__name__,
             static_folder='static',
             template_folder='templates')
 CORS(app)
+
+# Set secret key for sessions (required for Flask)
+app.secret_key = os.environ.get('SECRET_KEY', secrets.token_hex(16))
 
 # Educational content data
 educational_content = {
@@ -97,13 +95,7 @@ emergency_resources = {
     ]
 }
 
-@app.route('/rights')
-def rights():
-    return render_template('rights.html')
 
-@app.route('/safety')
-def safety():
-    return render_template('safety.html')
 # Routes
 @app.route('/')
 def index():
@@ -147,6 +139,18 @@ def about():
     return render_template('about.html')
 
 
+@app.route('/rights')
+def rights():
+    """Rights page"""
+    return render_template('rights.html')
+
+
+@app.route('/safety')
+def safety():
+    """Safety page"""
+    return render_template('safety.html')
+
+
 # API endpoints
 @app.route('/api/ask', methods=['POST'])
 def ask_question():
@@ -181,13 +185,6 @@ def get_emergency():
 @app.errorhandler(404)
 def not_found(e):
     return render_template('index.html'), 404
-@app.route('/rights')
-def rights():
-    return render_template('rights.html')
-
-@app.route('/safety')
-def safety():
-    return render_template('safety.html')
 
 
 if __name__ == '__main__':
