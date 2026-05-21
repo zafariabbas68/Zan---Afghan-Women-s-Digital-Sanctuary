@@ -3,6 +3,12 @@ from flask_cors import CORS
 import os
 import json
 from datetime import datetime
+# Add to app.py before running in production
+import secrets
+app.secret_key = os.environ.get('SECRET_KEY', secrets.token_hex(16))
+
+# Disable debug mode
+app.debug = False
 
 # Initialize Flask app
 app = Flask(__name__,
@@ -91,7 +97,13 @@ emergency_resources = {
     ]
 }
 
+@app.route('/rights')
+def rights():
+    return render_template('rights.html')
 
+@app.route('/safety')
+def safety():
+    return render_template('safety.html')
 # Routes
 @app.route('/')
 def index():
@@ -169,9 +181,19 @@ def get_emergency():
 @app.errorhandler(404)
 def not_found(e):
     return render_template('index.html'), 404
+@app.route('/rights')
+def rights():
+    return render_template('rights.html')
+
+@app.route('/safety')
+def safety():
+    return render_template('safety.html')
 
 
 if __name__ == '__main__':
+    # Get port from environment variable (Render sets this)
+    port = int(os.environ.get('PORT', 5000))
+
     # Create log file if it doesn't exist
     if not os.path.exists('questions_log.txt'):
         with open('questions_log.txt', 'w', encoding='utf-8') as f:
@@ -180,7 +202,8 @@ if __name__ == '__main__':
 
     print("\n" + "=" * 50)
     print("✅ ZAN App is starting...")
-    print("📍 Open: http://localhost:5000")
+    print(f"📍 Running on port {port}")
     print("=" * 50 + "\n")
 
-    app.run(debug=True, host='0.0.0.0', port=5001)
+    # Use production settings (debug=False)
+    app.run(debug=False, host='0.0.0.0', port=port)
