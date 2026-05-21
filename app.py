@@ -11,7 +11,7 @@ app = Flask(__name__,
             template_folder='templates')
 CORS(app)
 
-# Set secret key for sessions (required for Flask)
+# Set secret key for sessions
 app.secret_key = os.environ.get('SECRET_KEY', secrets.token_hex(16))
 
 # Educational content data
